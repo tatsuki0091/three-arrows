@@ -1,0 +1,6 @@
+version: "3.9"
+syncs:
+  client-sync:
+    src: "./client"
+  server-sync:
+    src: "./server"
