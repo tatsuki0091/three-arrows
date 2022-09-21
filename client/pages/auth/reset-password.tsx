@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
-const Login = () => {
+const ResetRassword = () => {
   const [errors, setErrors] = useState<Object | undefined>({});
   const { onChange, onSubmit, values } = useForm(loginUserCallback, {
     username: "",
@@ -16,61 +16,34 @@ const Login = () => {
   function loginUserCallback() {
     console.log("tesdsfsft");
   }
-
-  //   const [loginUser,{ loading }] = useMutation(LOGIN_USER, {
-  //     update(_, { data: { login: userData } }) {
-  //       //   context.login(userData);
-  //       navigate("/");
-  //     },
-  //     onError(err) {
-  //       setErrors(err.graphQLErrors[0].extensions.errors);
-  //     },
-  //     variables: values,
-  //   });
-  //   function loginUserCallback() {
-  //     loginUser();
-  //   }
   return (
     <Content>
       <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
         <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
           <h1 className="text-3xl font-semibold text-center text-gray-700">
-            Sign In
+            Reset Password
           </h1>
           <form className="mt-6">
             <InpputForm
-              htmlFor={"username"}
-              label={"Username"}
-              type={"text"}
-              name={"username"}
-              value={values.username}
+              htmlFor={"email"}
+              label={"Email"}
+              type={"email"}
+              name={"email"}
+              value={values.email}
               onChange={onChange}
             />
-            <InpputForm
-              htmlFor={"password"}
-              label={"Password"}
-              type={"password"}
-              name={"password"}
-              value={values.password}
-              onChange={onChange}
-            />
-            <Link href="/auth/reset-password">
-              <a className="text-xs text-blue-400 hover:underline">
-                Forget Password?
-              </a>
-            </Link>
             <div className="mt-6">
               <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-800 focus:outline-none focus:bg-purple-600">
-                Login
+                Reset Password
               </button>
             </div>
           </form>
 
           <p className="mt-8 text-xs font-light text-center text-gray-800">
-            Do not have an account?{" "}
-            <Link href="/auth/register">
+            Back to{" "}
+            <Link href="/auth/login">
               <a className="font-medium text-blue-400 hover:underline">
-                Sign up
+                Sign In
               </a>
             </Link>
           </p>
@@ -80,16 +53,4 @@ const Login = () => {
   );
 };
 
-// const LOGIN_USER = gql`
-//   mutation login($username: String!, $password: String!) {
-//     login(username: $username, password: $password) {
-//       id
-//       email
-//       username
-//       createdAt
-//       token
-//     }
-//   }
-// `;
-
-export default Login;
+export default ResetRassword;

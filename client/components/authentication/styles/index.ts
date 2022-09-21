@@ -11,7 +11,7 @@ export const Content = styled.div`
   background-position: center center; /* 画像の表示位置を指定  */
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 `;
 
 export const Button = styled.button`
